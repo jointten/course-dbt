@@ -1,0 +1,91 @@
+version: 2
+
+models:
+  - name: stg_addresses
+    description: greenery customer addresses 
+    columns:
+      - name: ADDRESS_ID
+        tests:
+          - not_null
+      - name: ADDRESS
+      - name: ZIPCODE
+      - name: STATE
+      - name: COUNTRY
+
+  - name: stg_events
+    description: events 
+    columns:
+      - name: EVENT_ID
+        tests:
+          - not_null
+      - name: SESSION_ID
+      - name: USER_ID
+      - name: EVENT_TYPE
+      - name: PAGE_URL
+      - name: CREATED_AT
+      - name: ORDER_ID
+      - name: PRODUCT_ID
+
+  - name: stg_orders
+    description: orders 
+    columns:
+      - name: ORDER_ID
+        tests:
+          - not_null
+          - unique
+      - name: PROMO_ID
+      - name: USER_ID
+      - name: ADDRESS_ID
+      - name: CREATED_AT
+      - name: ORDER_COST
+      - name: SHIPPING_COST  
+      - name: ORDER_TOTAL
+      - name: TRACKING_ID
+      - name: SHIPPING_SERVICE
+      - name: ESTIMATED_DELIVERY_AT
+      - name: DELIVERED_AT
+      - name: STATUS
+   
+  - name: stg_order_items
+    description: order_items 
+    columns:
+      - name: ORDER_ID
+        tests:
+          - not_null
+      - name: PRODUCT_ID
+      - name: QUANTITY
+
+
+  - name: stg_products
+    description: products 
+    columns:
+      - name: PRODUCT_ID
+        tests:
+          - not_null
+      - name: NAME
+      - name: PRICE
+      - name: INVENTORY
+
+
+  - name: stg_promos
+    description: promos 
+    columns:
+      - name: PROMO_ID
+        tests:
+          - not_null
+      - name: DISCOUNT
+      - name: STATUS
+
+  - name: stg_users
+    description: users 
+    columns:
+      - name: USER_ID
+        tests:
+          - not_null
+      - name: FIRST_NAME
+      - name: LAST_NAME
+      - name: EMAIL
+      - name: PHONE_NUMBER
+      - name: CREATED_AT
+      - name: UPDATED_AT
+      - name: ADDRESS_ID
