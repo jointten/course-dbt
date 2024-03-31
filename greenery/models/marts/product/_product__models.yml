@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: product_fact_summary
+    columns:
+      - name: product_name
+      - name: date
+      - name: viewed
+      - name: added_to_cart
+      - name: ordered
+

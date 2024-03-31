@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: dim_users
+    columns:
+      - name: user_id
+      - name: first_name 
+      - name: last_name
+      - name: email
+      - name: phone_number
+      - name: address
+      - name: zipcode
+      - name: state
+      - name: country
+
+  - name: dim_products
+    columns:
+      - name:  product_id
+      - name:  name
+      - name:  current_price
+      - name:  inventory
+  
+  - name: fact_orders 
+    columns:
+      - name: order_id
+      - name: user_id
+      - name: order_cost
+      - name: shipping_cost
+      - name: order_total
+      - name: order_item
+      - name: shipping_service
+      - name: estimated_delivery_at
+      - name: delivered_at
+      - name: order_status
+      - name: created_at
+      - name: promo_id
+      - name: discount
