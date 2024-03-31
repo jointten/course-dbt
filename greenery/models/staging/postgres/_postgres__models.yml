@@ -18,6 +18,7 @@ models:
       - name: EVENT_ID
         tests:
           - not_null
+          - unique
       - name: SESSION_ID
       - name: USER_ID
       - name: EVENT_TYPE
@@ -38,8 +39,17 @@ models:
       - name: ADDRESS_ID
       - name: CREATED_AT
       - name: ORDER_COST
-      - name: SHIPPING_COST  
+        tests:
+          - not_null
+          - positive_values
+      - name: SHIPPING_COST
+        tests:
+          - not_null
+          - positive_values  
       - name: ORDER_TOTAL
+        tests:
+          - not_null
+          - positive_values
       - name: TRACKING_ID
       - name: SHIPPING_SERVICE
       - name: ESTIMATED_DELIVERY_AT
@@ -54,6 +64,9 @@ models:
           - not_null
       - name: PRODUCT_ID
       - name: QUANTITY
+        tests:
+          - not_null
+          - positive_values
 
 
   - name: stg_products
@@ -64,6 +77,8 @@ models:
           - not_null
       - name: NAME
       - name: PRICE
+        tests:
+          - positive_values
       - name: INVENTORY
 
 
@@ -82,6 +97,7 @@ models:
       - name: USER_ID
         tests:
           - not_null
+          - unique
       - name: FIRST_NAME
       - name: LAST_NAME
       - name: EMAIL
@@ -89,3 +105,4 @@ models:
       - name: CREATED_AT
       - name: UPDATED_AT
       - name: ADDRESS_ID
+          - not_null
