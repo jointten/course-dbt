@@ -35,3 +35,6 @@ models:
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
+      +post-hook:
+        ["grant select on {{this}} to role public", # this role could be something better, but for now I didn't see any other roles
+        "use warehouse transformer_dev"]
